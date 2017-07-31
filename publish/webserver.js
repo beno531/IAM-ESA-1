@@ -5,8 +5,6 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
-var sys = require('sys');
-
 
 // the HTTP server
 var server;
