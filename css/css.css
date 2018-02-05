@@ -17,6 +17,11 @@ html, body {
     -webkit-user-select: none;
 }
 
+/* use flexbox for horizontal positioning (replaces floating used in earlier versions) */
+header, footer, li {
+    display: flex;
+}
+
 /* header and its parts */
 
 header {
@@ -50,25 +55,31 @@ header h2 {
 .listeners-active .toggle-listeners {
     background-image: url("./img/glyphicons/png/glyphicons-560-mic-mute.png");
     background-size: 23px 30px;
-    float: left;
+    /*float: left;*/
+    justify-content: flex-start;
 }
 
 .toggle-listeners {
     background-image: url("./img/glyphicons/png/glyphicons-301-microphone.png");
     background-size: 23px 30px;
-    float: left;
+    /*float: left;*/
+    justify-content: flex-start;
 }
 
 .new-item {
     background-image: url("./img/glyphicons/png/glyphicons-433-plus.png");
-    float: right;
+    /*float: right;*/
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 .edit-item {
     padding-top: 15px;
     padding-bottom: 15px;
     background-image: url("./img/glyphicons/png/glyphicons-31-pencil.png");
-    float: right;
+    /*float: right;*/
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 /* main part of the view */
