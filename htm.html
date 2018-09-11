@@ -16,21 +16,21 @@
 </head>
 <body>
     <header>
-        <div class="button toggle-listeners" onclick="toggleListeners()"></div>
-        <h2>Listenansicht</h2>
-        <div class="button new-item" disabled="disabled"></div>
+        <button class="imgbutton toggle-listeners" onclick="toggleListeners()"></button>
+        <h1>Listenansicht</h1>
+        <button class="imgbutton new-item" disabled="disabled"></button>
     </header>
-    <div class="maincontent">
+    <main>
         <ul>
-            <li>lorem<div class="button edit-item"></div></li>
-            <li>ipsum<div class="button edit-item"></div></li>
-            <li>dolor<div class="button edit-item"></div></li>
-            <li>sit<div class="button edit-item"></div></li>
-            <li>amet<div class="button edit-item"></div></li>
+            <li>lorem<button class="imgbutton edit-item"></button></li>
+            <li>ipsum<button class="imgbutton edit-item"></button></li>
+            <li>dolor<button class="imgbutton edit-item"></button></li>
+            <li>sit<button class="imgbutton edit-item"></button></li>
+            <li>amet<button class="imgbutton edit-item"></button></li>
         </ul>
-    </div>
-    <div class="toast">
+    </main>
+    <dialog class="toast" open>
         lorem ipsum
-    </div>
+    </dialog>
 </body>
 </html>

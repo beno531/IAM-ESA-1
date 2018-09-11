@@ -22,10 +22,10 @@ function createListElementForContentItem(item) {
 
     var li = document.createElement("li");
     li.textContent = item.name;
-    var div = document.createElement("div");
-    li.appendChild(div);
-    div.classList.add("edit-item");
-    div.classList.add("button");
+    var button = document.createElement("button");
+    li.appendChild(button);
+    button.classList.add("edit-item");
+    button.classList.add("imgbutton");
 
     // add the element to the list
     document.getElementsByTagName("ul")[0].appendChild(li);

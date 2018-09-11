@@ -1,5 +1,14 @@
+/* variable declarations */
+:root {
+    --myapp-color-background: limegreen;
+    --myapp-color-separator: rgb(120,120,120);
+    --myapp-color-main: rgb(45,45,45);
+    --myapp-color-header: rgb(60,60,60)
+}
+
+
 html, body {
-    background-color: limegreen;
+    background-color: var(--myapp-color-background);
     margin: 0px;
     font-family: "Avenir Medium", sans-serif;
     color: white;
@@ -25,24 +34,30 @@ header, footer, li {
 /* header and its parts */
 
 header {
-    background-color: rgb(60,60,60);
+    background-color: var(--myapp-color-header);
     height: 50px;
     width: 100%;
     max-width: 100%;
     line-height: 50px;
 }
 
-header h2 {
+header h1 {
+    font-size: 18pt;
     margin: 0px;
     font-weight: normal;
     display: inline-block;
     text-transform: uppercase;
 }
 
-.button {
+.imgbutton {
+    background-color: transparent;
     height: 30px;
     width: 30px;
-    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0px;
+    border: none;
     background-repeat: no-repeat;
     background-size: 30px 30px;
     display: inline-block;
@@ -54,7 +69,7 @@ header h2 {
 
 .listeners-active .toggle-listeners {
     background-image: url("./img/glyphicons/png/glyphicons-560-mic-mute.png");
-    background-size: 23px 30px;
+    background-size: 30px 30px;
     /*float: left;*/
     justify-content: flex-start;
 }
@@ -74,8 +89,8 @@ header h2 {
 }
 
 .edit-item {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     background-image: url("./img/glyphicons/png/glyphicons-31-pencil.png");
     /*float: right;*/
     justify-content: flex-end;
@@ -84,10 +99,10 @@ header h2 {
 
 /* main part of the view */
 
-.maincontent {
+.maincontent, main {
     width: 100%;
     max-width: 100%;
-    background-color: rgb(45,45,45);
+    background-color: var(--myapp-color-main);
     height: calc(100% - (50px));
     height: -webkit-calc(100% - 50px);
     max-height: calc(100% - 50px);
@@ -109,7 +124,7 @@ li {
     line-height: 60px;
     font-size: 20pt;
     padding-left: 10px;
-    border-bottom: 1px solid rgb(120,120,120);
+    border-bottom: 1px solid var(--myapp-color-separator);
 }
 
 /* disabled elements */
@@ -118,29 +133,31 @@ li {
 }
 
 /* selected elements */
-li:active, .button:active  {
+li:active, .imgbutton:active  {
     opacity: 0.1;
 }
 
 
 /* toast */
 
-.toast {
-    width: 60%;
+dialog.toast {
     position: fixed;
-    text-align: center;
+    width: 60%;
     bottom: 15%;
     left: 20%;
-    background-color: white;
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
     opacity: 0.0;
+    color: white;
+    border: none;
     transition: opacity 0.5s, background-color 0.5s;
     transition-delay: 0.5s;
 }
 
 .toast.shown {
-    background-color: gray;
-    color: white;
     opacity: 1.0;
+    background-color: gray;
     /*transition-delay: 0s;*/
     transition: opacity 1s, background-color 1s;
 }
