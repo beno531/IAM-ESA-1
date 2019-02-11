@@ -9,7 +9,7 @@ var fs = require('fs');
 // the HTTP server
 var server;
 // the port on which the server will be started
-var port = 8394;
+var port = 8395;
 
 // the ip address
 var ip = getIPAddress();
