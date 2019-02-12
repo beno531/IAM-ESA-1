@@ -49,7 +49,7 @@ function loadNewItems() {
 function createListElementForContentItem(item) {
 
     var li = document.createElement("li");
-    li.textContent = item.name;
+    li.textContent = item.title;
     var button = document.createElement("button");
     li.appendChild(button);
     button.classList.add("edit-item");
