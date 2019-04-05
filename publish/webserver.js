@@ -83,11 +83,14 @@ console.log("HTTP server running at http://" + ip + ":" + port);
 
 /*
  * helper methhod for obtaining an ip address
+ * see https://gist.github.com/savokiss/96de34d4ca2d37cbb8e0799798c4c2d3
  */
 function getIPAddress() {
     var interfaces = require('os').networkInterfaces();
     for (var devName in interfaces) {
         var iface = interfaces[devName];
+
+        console.log("devName: " + devName);
 
         for (var i = 0; i < iface.length; i++) {
             var alias = iface[i];
