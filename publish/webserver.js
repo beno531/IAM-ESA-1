@@ -82,27 +82,6 @@ console.log("HTTP server running at http://" + ip + ":" + port);
 
 
 /*
- * helper methhod for obtaining an ip address
- * see https://gist.github.com/savokiss/96de34d4ca2d37cbb8e0799798c4c2d3
- */
-function getIPAddress() {
-    var interfaces = require('os').networkInterfaces();
-    for (var devName in interfaces) {
-        var iface = interfaces[devName];
-
-        console.log("devName: " + devName);
-
-        for (var i = 0; i < iface.length; i++) {
-            var alias = iface[i];
-            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal)
-                return alias.address;
-        }
-    }
-
-    return '127.0.0.1';
-}
-
-/*
  * helper methhod for assiging a Content-Type header to http responses
  */
 function contentType(path) {
@@ -133,3 +112,72 @@ function contentType(path) {
     }
 }
 
+// more sophisticated solution by Jens Bekersch, see https://github.com/JensBekersch/org.dieschnittstelle.iam.css_jsl_jsr/blob/master/publish/webserver.js
+function getIPAddress() {
+
+    var operatingSystem= process.platform;
+    var networkInterfaces= require('os').networkInterfaces();
+    var allowedAdapterNamesRegExp= new RegExp("^(Ethernet|WLAN|WiFi)");
+    var ipAddress= '127.0.0.1';
+
+    switch(operatingSystem) {
+        case 'win32':
+            getWindowsEthernetAdapterName();
+            break;
+        default:
+            getLinuxEthernetAdapter();
+            break;
+    }
+
+    function getWindowsEthernetAdapterName() {
+        var ethernetAdapterName;
+        for(ethernetAdapterName in networkInterfaces)
+            selectEthernetAdapterByName(ethernetAdapterName);
+    }
+
+    function selectEthernetAdapterByName(ethernetAdapterName) {
+        if(ethernetAdapterName.match(allowedAdapterNamesRegExp))
+            getIPAdressOfEthernetAdapter(networkInterfaces[ethernetAdapterName]);
+    }
+
+    function getLinuxEthernetAdapter() {
+        var ethernetAdapterName;
+        for(ethernetAdapterName in networkInterfaces)
+            getIPAdressOfEthernetAdapter(networkInterfaces[ethernetAdapterName]);
+    }
+
+    function getIPAdressOfEthernetAdapter(selectedNetworkAdapter) {
+        var i;
+        for (i=0; i<selectedNetworkAdapter.length; i++)
+            checkIfAliasIsIPv4NotLocalAndNotInternal(selectedNetworkAdapter[i]);
+    }
+
+    function checkIfAliasIsIPv4NotLocalAndNotInternal(alias) {
+        if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal)
+            ipAddress= alias.address;
+    }
+
+    return ipAddress;
+}
+
+
+/*
+ * helper methhod for obtaining an ip address
+ * see https://gist.github.com/savokiss/96de34d4ca2d37cbb8e0799798c4c2d3
+ */
+// function getIPAddress() {
+//     var interfaces = require('os').networkInterfaces();
+//     for (var devName in interfaces) {
+//         var iface = interfaces[devName];
+//
+//         console.log("devName: " + devName);
+//
+//         for (var i = 0; i < iface.length; i++) {
+//             var alias = iface[i];
+//             if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal)
+//                 return alias.address;
+//         }
+//     }
+//
+//     return '127.0.0.1';
+// }
