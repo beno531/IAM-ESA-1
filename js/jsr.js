@@ -1,8 +1,9 @@
 /**
  * Created by master on 01.03.16.
  * Updated for W19, demonstrate alternatives for accessing server-side content and processing the result
+ * Updated for W22, the root element will be passed by the view controller instance (see jsl.js)
  */
-function loadNewItems() {
+function loadNewItems(root) {
     console.log("loadNewItems()");
 
     var mode = "arg"; // alternatives: arg, promise, fetch
@@ -13,7 +14,7 @@ function loadNewItems() {
 
         // we assume jsonContent is an array and iterate over its members
         jsonContent.forEach(function (contentItem) {
-            createListElementForContentItem(contentItem);
+            createListElementForContentItem(contentItem,root);
         });
     }
 
@@ -46,7 +47,7 @@ function loadNewItems() {
 
 }
 
-function createListElementForContentItem(item) {
+function createListElementForContentItem(item,root) {
 
     var li = document.createElement("li");
     li.textContent = item.title;
@@ -56,6 +57,6 @@ function createListElementForContentItem(item) {
     button.classList.add("imgbutton");
 
     // add the element to the list
-    document.getElementsByTagName("ul")[0].appendChild(li);
+    root.getElementsByTagName("ul")[0].appendChild(li);
 
 }
