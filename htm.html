@@ -16,19 +16,41 @@
 </head>
 <body>
     <header>
-        <button class="imgbutton toggle-listeners"></button>
-        <h1>Listenansicht</h1>
-        <button class="imgbutton new-item" disabled="disabled"></button>
+        <button class="imgbutton icon-burger-menu"></button>
+        <h1>Medien</h1>
+        <button class="imgbutton icon-plus"></button>
+        <button class="imgbutton icon-tiles"></button>
     </header>
+
     <main>
-        <ul>
-            <li>lorem<button class="imgbutton edit-item"></button></li>
+        <ul class="main-list">
+            <li>
+                <div class="item-image" style="background-image: url('http://i.imgur.com/lNB7QSt.jpg')"></div>
+                <div class="item-info">
+                    <ul class="item-info-list">
+                        <li><p class="text-origin">asd</p><p class="text-date">ddd</p></li>
+                        <li><p class="text-origin">asd</p><p class="text-date">ddd</p></li>
+                        <li><p class="text-origin">asd</p><p class="text-date">ddd</p></li>
+                    </ul>
+                </div>
+            </li>
             <li>ipsum<button class="imgbutton edit-item"></button></li>
             <li>dolor<button class="imgbutton edit-item"></button></li>
-            <li>sit<button class="imgbutton edit-item"></button></li>
-            <li>amet<button class="imgbutton edit-item"></button></li>
+            
         </ul>
     </main>
+
+    <footer>
+        <button class="imgbutton icon-logout"></button>
+        <button class="imgbutton icon-refresh"></button>
+    </footer>
+
+
+
+
+
+
+
     <dialog class="toast" open>
         lorem ipsum
     </dialog>
