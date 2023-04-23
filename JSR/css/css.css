@@ -1,0 +1,326 @@
+/* variable declarations */
+:root {
+    --myapp-color-background: rgb(255,255,255);
+    --myapp-color-separator: grey;
+    --myapp-color-main: white;
+    --myapp-color-header: rgb(255,255,255);
+    --myapp-color-list-element: rgb(255,255,255);
+}
+
+html, body {
+    background-color: var(--myapp-color-background);
+    margin: 0px;
+    font-family: "Avenir Medium", sans-serif;
+    color: black;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+header, footer, li {
+    display: flex;
+}
+
+header {
+    background-color: var(--myapp-color-header);
+    height: 50px;
+    width: 100%;
+    max-width: 100%;
+    line-height: 50px;
+    border-bottom: 5px solid grey;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--myapp-color-main);
+    height: calc(100% - (110px));
+    height: -webkit-calc(100% - 110px);
+    max-height: calc(100% - 50px);
+    max-height: -webkit-calc(100% - 110px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+footer {
+    background-color: var(--myapp-color-header);
+    height: 50px;
+    width: 100%;
+    max-width: 100%;
+    border-top: 5px solid orange;
+}
+
+header h1 {
+    font-size: 18pt;
+    margin: 0px;
+    font-weight: normal;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.imgbutton {
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0px;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    display: inline-block;
+    background-origin: content-box;
+    background-position: center center;
+    filter: invert(90%);
+    -webkit-filter: invert(90%);
+}
+
+.icon-burger-menu {
+    background-image: url("./img/glyphicons/png/glyphicons-517-menu-hamburger.png");
+    background-size: 23px 23px;
+    /*float: left;*/
+    justify-content: flex-start;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+}
+
+.icon-plus {
+    background-image: url("./img/glyphicons/png/glyphicons-433-plus.png");
+    /*float: right;*/
+    justify-content: flex-end;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+}
+
+.icon-logout {
+    background-image: url("./img/glyphicons/png/glyphicons-388-log-out.png");
+    background-size: 23px 23px;
+    /*float: left;*/
+    justify-content: flex-start;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+}
+
+.icon-refresh {
+    background-image: url("./img/glyphicons/png/glyphicons-82-refresh.png");
+    /*float: right;*/
+    justify-content: flex-end;
+    margin-left: auto;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+}
+
+
+
+
+/* List View */
+
+.list-view .main-list {
+    margin: 0px;
+    list-style: none;
+    padding: 15px 0px 0px 0px;
+    background-color: grey;
+}
+
+.list-view .main-list > li {
+    height: 100px;
+    font-size: 20pt;
+    border-bottom: 1px solid var(--myapp-color-separator);
+    background-color: var(--myapp-color-list-element);
+    position: relative;
+}
+
+.list-view li > .item-content{
+    padding: 10px 10px 20px 10px;
+    height: 70px;
+    width: 100%;
+}
+
+.list-view li .item-image{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+}
+
+.list-view li .item-info{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 90px;
+    right: 10px;
+}
+
+.list-view .item-info div{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.list-view .item-info p{
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 6px;
+}
+
+.list-view .text-origin{
+    color: grey;
+    font-size: 13px;
+    float: left;
+}
+
+.list-view .text-date{
+    color: grey;
+    font-size: 14px;
+    margin-top: 0px;
+    float: right;
+}
+
+.list-view .text-titel{
+    color: black;
+    font-size: 20px;
+}
+
+.list-view .text-tag{
+    color: grey;
+    font-size: 13px;
+}
+
+.list-view .text-tag:before {
+    background-image: url("./img/glyphicons/png/glyphicons-174-play.png");
+    background-size: 14px 14px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    /*float: left;*/
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+    padding-right: 20px;
+    content: "";
+}
+
+.list-view .item-option{
+    display: block;
+    position: absolute;
+    background-image: url("./img/glyphicons/png/glyphicons-518-option-vertical.png");
+    background-color: transparent;
+    background-size: cover;
+    height: 25px;
+    width: 10px;
+    border: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-origin: content-box;
+    background-position: center center;
+    filter: invert(90%);
+    -webkit-filter: invert(90%);
+    right: 10px;
+    bottom: 9px;
+    z-index: 3;
+}
+
+/* End List View */
+
+/* Tile View */
+
+@media only screen and (max-width: 800px) {
+    .tile-view .main-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 15px;
+        margin: 0px;
+        gap: 15px;
+    } 
+}
+
+@media only screen and (min-width: 800px) {
+    .tile-view .main-list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 15px;
+        margin: 0px;
+        gap: 15px;
+    } 
+}
+
+
+.tile-view li {
+    position: relative;
+    background-color: blue;
+    aspect-ratio: 1;
+}  
+
+.tile-view .item-content{
+    width: 100%;
+    height: 100%;
+}
+
+.tile-view .item-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tile-view .item-info{
+    display: none;
+}
+
+.tile-view .item-option{
+    display: block;
+    position: absolute;
+    background-image: url("./img/glyphicons/png/glyphicons-518-option-vertical.png");
+    background-color: transparent;
+    background-size: cover;
+    height: 30px;
+    width: 20px;
+    border: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-origin: content-box;
+    background-position: center center;
+    filter: invert(90%);
+    -webkit-filter: invert(90%);
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+} 
+/* End Tile View */
+
+/* Header Menu */
+.list-view .icon-tiles {
+    background-image: url("./img/glyphicons/png/glyphicons-157-show-thumbnails.png");
+    /*float: right;*/
+    justify-content: flex-end;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+    margin-left: auto;
+}
+
+.tile-view .icon-list {
+    background-image: url("./img/glyphicons/png/glyphicons-115-list.png");
+    /*float: right;*/
+    justify-content: flex-end;
+    filter: invert(60%); 
+    -webkit-filter: invert(60%);
+    margin-left: auto;
+}
+/* End Header Menu */
+
+/* Animations */
+
+.view-shown{
+    opacity: 0.0;
+    transition: opacity 2s;
+}
+
+.view-active{
+    opacity: 1.0;
+    transition: opacity 1s;
+}
