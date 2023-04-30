@@ -1,3 +1,12 @@
+/* Modifiziert im Pair Programming Verfahren durch: Benito Ernst, Arthur Muszynski 
+
+Sämtlicher Inhalt wurde selbst verfasst.
+
+*/
+
+
+
+
 class ViewController {
 
     constructor(props) {

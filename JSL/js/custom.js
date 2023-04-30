@@ -1,7 +1,10 @@
-window.onload = () => {
-    const vc = new ViewController();
-    vc.oncreate();    
-}
+/* Modifiziert im Pair Programming Verfahren durch: Benito Ernst, Arthur Muszynski 
+
+Sämtlicher Inhalt wurde selbst verfasst.
+
+*/
+
+
 
 class ViewController {
 
@@ -90,4 +93,9 @@ class ViewController {
         alert("Title: " + item.parentElement.getElementsByClassName("text-titel")[0].innerText + "\n" +
         "Image-Url: " + item.parentElement.getElementsByClassName("item-image")[0].src);
     }
+}
+
+window.onload = () => {
+    const vc = new ViewController();
+    vc.oncreate();    
 }
